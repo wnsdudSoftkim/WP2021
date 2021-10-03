@@ -1,0 +1,41 @@
+body {
+    background-image: url('./media/background.jpg');
+    background-repeat: repeat;
+    background-size: 40%;
+}
+.header_h2 {
+    color:rgb(23, 13, 173);
+    font-family: 'Roboto', sans-serif;
+}
+p::first-letter {
+    font-size: 2em;
+    color: red;
+}
+.image {
+    border: 10px groove blue;
+    box-shadow:10px 10px 5px skyBlue;
+}
+th {
+    background-color: yellow;
+}
+.computernet {
+    background-color: aqua;
+}
+.database {
+    background-color: aquamarine;
+}
+.software {
+    background-color: blueviolet;
+}
+.enterprise {
+    background-color: brown;
+}
+.mene {
+    background-color: rgb(13, 58, 95);
+}
+.webprogramming {
+    background-color: rgb(158, 158, 20);
+}
+.SW {
+    background-color: cyan;
+}
