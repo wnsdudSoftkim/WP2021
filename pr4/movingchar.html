@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>움직이는 글자</title>
+        <style>
+            .commonanimation {
+                animation-duration:2s;
+                animation-duration: leaner;
+                animation-iteration-count: infinite;
+                animation-direction:alternate;
+                animation-fill-mode: both;
+            }
+            @keyframes wwwani {
+                0%{
+                    left:0;
+                    top:0;
+
+                    border-radius: 20px;
+                    font-size:4rem;
+                }
+                100% {
+                    left:50%;
+
+                    border-radius: 80px;
+                    font-size:10rem;
+                }
+            }
+            @keyframes HTMLani {
+                0%{
+                    right:0;
+                    top:0;
+
+                    border-radius: 20px;
+                    font-size:4rem;
+                }
+                100% {
+                    top:50%;
+
+                    border-radius: 80px;
+                    font-size:10rem;
+                }
+            }
+            @keyframes JavaScriptani {
+                0%{
+                    left:0;
+                    bottom:0;
+
+                    border-radius: 20px;
+                    font-size:4rem;
+                }
+                100% {
+                    bottom:50%;
+
+                    border-radius: 80px;
+                    font-size:10rem;
+                }
+            }
+            @keyframes CSS3ani {
+                0%{
+                    right:0;
+                    bottom:0;
+
+                    border-radius: 20px;
+                    font-size:4rem;
+                }
+                100% {
+                    right:50%;
+
+                    border-radius: 80px;
+                    font-size:10rem;
+                }
+            }
+        
+            
+            .www {
+                position:absolute;
+                top:0;
+                left:0;
+                border-radius: 20px;
+                color:white;
+                background-color: black;
+                text-align: center;
+                margin: 10px;
+                z-index: 0;
+                animation-name: wwwani;
+            }
+            .HTML {
+                position:absolute;
+                top:0;
+                right:0;
+                z-index: 0;
+                margin: 10px;
+                border-radius: 20px;
+                color:white;
+                background-color: red;
+                text-align: center;
+            
+                animation-name: HTMLani;
+                
+            }
+            .JavaScript {
+                position:absolute;
+                bottom:0;
+                left:0;
+                margin: 10px;
+                border-radius: 20px;
+                z-index: 1;
+                color:white;
+                background-color: blue;
+                text-align: center;
+        
+                animation-name: JavaScriptani;
+            }
+            .CSS3 {
+                position:absolute;
+                bottom:0;
+                z-index: 1;
+                right:0;
+                margin: 10px;
+                border-radius: 20px;
+                color:white;
+                background-color: green;
+                text-align: center;
+           
+                animation-name: CSS3ani;
+            }
+            .commonanimation:hover {
+                transition: 1s;
+                transform: rotate(180deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="movingSection ">
+            <div class="myhover">
+
+                <div class="www commonanimation">
+                    www
+                </div>
+            </div>
+            <div class="myhover">
+
+                <div class="HTML commonanimation">
+                    HTML
+                </div>
+            </div>
+            <div class="myhover">
+
+                <div class="JavaScript commonanimation">
+                    JavaScript
+                </div>
+            </div>
+            <div class="myhover">
+
+                <div class="CSS3 commonanimation">
+                    CSS3
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
