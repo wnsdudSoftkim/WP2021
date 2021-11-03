@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cinema</title>
+        <style>
+            html,body {
+                margin:0;
+
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            /* header 부분 common css */
+            .headerContainer {
+                width:100%;
+                height:100px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: black;
+            }
+            /* 왼쪽 nav */
+            .headerLeft {
+                display:flex;
+                padding: 1rem;
+                margin-left: 1rem;
+            }
+            /* 공통 nav */
+            .nav {
+                color: #fff;
+                display: flex;
+                list-style: none;
+                margin: 0 0 0 -12px;
+            }
+            .nav-home {
+                color:#000;
+            }
+             /* 오른쪽 nav */
+            .headerRight {
+                display:flex;
+                padding: 1rem;
+                margin-right: 1rem;
+            }
+            .Link {
+                padding: 10px 12px;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+            }
+            /* 4개의 영화 보여줄 section */
+            .SectionContainer {
+                display: flex;
+ 
+            }
+            .column {
+                width: 50%;
+                padding-left:1rem;
+                padding-right:1rem;
+
+            }
+            .movieBox {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+                background: white;
+                border-radius: 4px;
+                box-shadow: rgba(0, 0, 0, 0.18) 0px 4px 16px 0px;
+                transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+                overflow: hidden;
+            }
+            .movieBox:hover {
+                transform: translateY(-8px);
+                box-shadow: rgba(0, 0, 0, 0.28) 0px 12px 20px 0px;
+        }
+            }
+            .titlebody{
+                display: block;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .title {
+                padding: 0.7rem;
+                font-size: 1.5rem;
+                color: #000;
+                margin: 0px 0px 0.25rem;
+                line-height: 1.5;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .body {
+                width: 100%;
+                height: 18rem;
+            }
+            .thumbnail_image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                max-width: 100%;
+                image-rendering: auto;
+            }
+            .sectionfooter {
+                padding: 1rem;
+                margin-top: 1rem;
+                border-top: 1px solid rgb(248, 249, 250);
+                display: flex;
+                font-size: 0.75rem;
+                line-height: 1.5;
+                justify-content: space-between;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 500;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerContainer">
+                <div class="headerLeft">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-home">
+                                <a class="Link" href="./main.html">HOME</a>
+                            </li>
+                            <li class="nav-introduce">
+                                <a class="Link" href="./introduce.html">INTRODUCE</a>
+                            </li>
+                            <li class="nav-register">
+                                <a class="Link" href="./reservation.html">REGISTER</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="headerRight">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-mypage">
+                                <a class="Link" href="./mypage.html">MYPAGE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="SectionContainer">
+                <div class="column column1">
+                    <div class="movieBox">
+                        <div class="cover">
+                            <a class="titlebody" href="./suits.html">
+                                <h4 class="title">Suits</h4>
+                                <div class="body">
+                                    <img class="thumbnail_image" src="media/1_suits.jpg">
+                                </div>
+                            </a>
+                            <div class="sectionfooter">
+                                <p class="directInfo">Aaron Korsh</p>
+                                <p class="date">
+                                    6월 23, 2011</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movieBox">
+                        <div class="cover">
+                            <a class="titlebody" href="./howcan.html">
+                                <h4 class="title">나는 어
+                                    떻게 슈퍼히어로가 되었는가 (2020)
+                                </h4>
+                                <div class="body">
+                                    <img class="thumbnail_image" src="media/2_howcan.jpg">
+                                </div>
+                            </a>
+                            <div class="sectionfooter">
+                                <p class="directInfo">Douglas Attal</p>
+                                <p class="date">
+                                    11월 19, 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column column2">
+                    <div class="movieBox">
+                        <div class="cover">
+                            <a class="titlebody" href="./squard.html">
+                                <h4 class="title">오징어 게임 (2021)</h4>
+                                <div class="body">
+                                    <img class="thumbnail_image" src="media/3_squardgame.jpg">
+                                </div>
+                            </a>
+                            <div class="sectionfooter">
+                                <p class="directInfo">Hwang Dong-hyuk</p>
+                                <p class="date">
+                                    9월 17, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movieBox">
+                        <div class="cover">
+                            <a class="titlebody" href="./venom.html">
+                                <h4 class="title">베놈2:렛 데어 비 카니지(2021)</h4>
+                                <div class="body">
+                                    <img class="thumbnail_image" src="media/4_venom2.jpg">
+                                </div>
+                            </a>
+                            <div class="sectionfooter">
+                                <p class="directInfo">Kelly Marcel</p>
+                                <p class="date">
+                                    10월 13, 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

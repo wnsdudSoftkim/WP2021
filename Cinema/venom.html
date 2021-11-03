@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cinema</title>
+        <style>
+            html,body {
+                margin:0;
+
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            /* header 부분 common css */
+            .headerContainer {
+                width:100%;
+                height:100px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: black;
+            }
+            /* 왼쪽 nav */
+            .headerLeft {
+                display:flex;
+                padding: 1rem;
+                margin-left: 1rem;
+            }
+            /* 공통 nav */
+            .nav {
+                color: #fff;
+                display: flex;
+                list-style: none;
+                margin: 0 0 0 -12px;
+            }
+            .nav-home {
+                color:#000;
+            }
+             /* 오른쪽 nav */
+            .headerRight {
+                display:flex;
+                padding: 1rem;
+                margin-right: 1rem;
+            }
+            .Link {
+                padding: 10px 12px;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+            }
+            /* 영화소개 */
+            .SectionContainer {
+                display: flex;
+                flex-direction: column;
+                width:100%;
+                height:100%;
+                background-color:#e9ecef;
+                
+            }
+            .introduceBox {
+                display: flex;
+                width:100%;
+                height:80%;
+            }
+            .thumbnail_box {
+                width:30%;
+            }
+            .thumbnail_image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                max-width: 100%;
+                image-rendering: auto;
+            }
+            .btn {
+                background: #FF4742;
+                border: 1px solid #FF4742;
+                border-radius: 6px;
+                box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+                box-sizing: border-box;
+                color: #FFFFFF;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 800;
+                line-height: 16px;
+                min-height: 40px;
+                padding: 12px 14px;
+                text-align: center;
+
+            }
+
+            .btn:hover,
+            .btn:active {
+                background-color: initial;
+                color: #FF4742;
+            }
+
+            .btn:active {
+                opacity: .5;
+            }
+            .right_box{
+                width:70%;
+                height:80%;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+       
+        <div class="container">
+            <div class="headerContainer">
+                <div class="headerLeft">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-home">
+                                <a class="Link" href="./main.html">HOME</a>
+                            </li>
+                            <li class="nav-introduce">
+                                <a class="Link" href="./introduce.html">INTRODUCE</a>
+                            </li>
+                            <li class="nav-register">
+                                <a class="Link" href="./reservation.html">REGISTER</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="headerRight">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-mypage">
+                                <a class="Link" href="./mypage.html">MYPAGE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="SectionContainer">
+                <div class="introduceBox">
+                    <div class="thumbnail_box">
+                        <img class="thumbnail_image" src="media/4_venom2.jpg">
+                    </div>
+                    <div class="right_box">
+                        <h2>베놈 2: 렛 데어 비 카니지 (2021)</h2>
+                        <p><strong>
+                            연쇄살인마 클리터스 캐서디(우디 해럴슨)가 사형선고를 받는다. 죽을 생각이 전혀 없는 클리터스는 자신의 집행일을 연기할 목적으로 마지막 증언을 남기겠다며 탐사보도로 유명한 프리랜스 저널리스트 에디를 지목한다. 베놈을 얻는 대신 직장과 연인을 모두 잃고 폐인처럼 생활하던 에디는 클리터스와의 단독 인터뷰를 통해 다시 한번 저널리스트로서 재기할 수 있는 기회를 얻는다. 클리터스가 던져주는 수많은 단서로 인해 미결로 남아 있던 살인사건을 추가로 밝히는 데 성공한 에디는 제일 먼저 앤에게 달려가지만 전편에서 에디의 몸에 베놈이 산다는 것을 알게 된 그녀는 새로운 연인 댄 박사(레이드 스콧)와 결혼을 선언한다. 평정심을 잃은 에디는 클리터스와의 인터뷰 중 실수로 클리터스가 새로운 빌런 카니지로 거듭나는 빌미를 제공하고 마는데...
+                        </strong></p>
+                            
+                    </div>
+                </div>
+   
+                    <button class="btn" onclick="location.href='reservation.html'">
+                        예매하기
+                    </button>
+
+             
+            </div>
+        </div>
+    </body>
+</html>

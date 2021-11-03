@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cinema</title>
+        <style>
+            html,body {
+                margin:0;
+
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            /* header 부분 common css */
+            .headerContainer {
+                width:100%;
+                height:100px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: black;
+            }
+            /* 왼쪽 nav */
+            .headerLeft {
+                display:flex;
+                padding: 1rem;
+                margin-left: 1rem;
+            }
+            /* 공통 nav */
+            .nav {
+                color: #fff;
+                display: flex;
+                list-style: none;
+                margin: 0 0 0 -12px;
+            }
+            .nav-home {
+                color:#000;
+            }
+             /* 오른쪽 nav */
+            .headerRight {
+                display:flex;
+                padding: 1rem;
+                margin-right: 1rem;
+            }
+            .Link {
+                padding: 10px 12px;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+            }
+            .btn {
+                background: #FF4742;
+                border: 1px solid #FF4742;
+                border-radius: 6px;
+                box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+                box-sizing: border-box;
+                color: #FFFFFF;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 800;
+                line-height: 16px;
+                min-height: 40px;
+                padding: 12px 14px;
+                text-align: center;
+
+            }
+
+            .btn:hover,
+            .btn:active {
+                background-color: initial;
+                color: #FF4742;
+            }
+
+            .btn:active {
+                opacity: .5;
+            }
+            #dateinput {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                padding:1rem;
+                font-size: 24px;
+            }
+            select {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                padding:1rem;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var pick = {
+                id:null,
+                flag:false,
+                seat:null,
+                date:null,
+                movie:null
+            }
+   
+            const btnClick = ()=> {
+                if (!pick.flag) {
+                    alert("좌석을 선택해주세요")
+                }else {
+                    alert("결제를 완료했습니다. 메인페이지로 이동합니다")
+                    
+                    pick.date = document.querySelector('input[type="date"]').value
+                    pick.movie = document.querySelector('select').selectedOptions[0].innerText
+                    pick.id = Math.random()
+                    console.log(pick.movie)                    
+                    if(localStorage.getItem("reservation")) {
+                        var setlist = JSON.parse(localStorage.getItem("reservation"))
+                        console.log("1번쨰"+JSON.stringify(setlist))
+                        setlist.push(pick)
+                        console.log("2번쨰"+JSON.stringify(setlist))
+                        
+                        localStorage.setItem("reservation",JSON.stringify(setlist))
+
+                    }else {
+                        var picklist= Array()
+                        picklist.push(pick)
+                        localStorage.setItem("reservation",JSON.stringify(picklist))
+                    }
+                    window.location.assign("main.html")
+                        
+                }
+            }
+            const onClick = (ID) => {
+                //table id
+                var id = document.getElementById(ID)
+                //btn id
+                var btn = document.getElementById('btn')
+                //seat가 null이 아니거나(아무것도 안골랐거나)
+                //seat가 기존과 다르면 return
+                if(pick.seat !== id.innerText && pick.seat !==null) {
+                    alert("한개의 좌석만 고르세요")
+                    return;
+                }
+                if(pick.flag) {
+                    id.style.backgroundColor="white"
+                    pick.flag = false
+                    pick.seat = null
+                    console.log(pick)
+                    btn.innerText="좌석을 골라주세요"
+                }else {
+                    id.style.backgroundColor="red"
+                    pick.flag = true
+                    pick.seat = id.innerText
+                    console.log(pick)
+                    btn.innerText=`${pick.seat} 좌석은 18000원 입니다.`
+                }
+            }
+        </script>
+        <div class="container">
+            <div class="headerContainer">
+                <div class="headerLeft">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-home">
+                                <a class="Link" href="./main.html">HOME</a>
+                            </li>
+                            <li class="nav-introduce">
+                                <a class="Link" href="./introduce.html">INTRODUCE</a>
+                            </li>
+                            <li class="nav-register">
+                                <a class="Link" href="./reservation.html">REGISTER</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="headerRight">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-mypage">
+                                <a class="Link" href="./mypage.html">MYPAGE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+            </div>
+            <table border="1">
+                <legend>좌석 배치도</legend>
+                <tr>
+                    <td id="A1" onclick="onClick('A1')">
+                        A1
+                    </td>
+                    <td id="A2" onclick="onClick('A2')">
+                        A2
+                    </td>
+                    <td id="A3" onclick="onClick('A3')">
+                        A3
+                    </td>
+                    <td id="A4" onclick="onClick('A4')">
+                        A4
+                    </td>
+                </tr>
+                <tr>
+                    <td id="B1" onclick="onClick('B1')">
+                        B1
+                    </td>
+                    <td id="B2" onclick="onClick('B2')">
+                        B2
+                    </td>
+                    <td id="B3" onclick="onClick('B3')">
+                        B3
+                    </td>
+                    <td id="B4" onclick="onClick('B4')">
+                        B4
+                    </td>
+                </tr>
+                <tr>
+                    <td id="C1" onclick="onClick('C1')">
+                        C1
+                    </td>
+                    <td id="C2" onclick="onClick('C2')">
+                        C2
+                    </td>
+                    <td id="C3" onclick="onClick('C3')">
+                        C3
+                    </td>
+                    <td id="C4" onclick="onClick('C4')">
+                        C4
+                    </td>
+                </tr>
+                <tr>
+                    <td id="D1" onclick="onClick('D1')">
+                        D1
+                    </td>
+                    <td id="D2" onclick="onClick('D2')">
+                        D2
+                    </td>
+                    <td id="D3" onclick="onClick('D3')">
+                        D3
+                    </td>
+                    <td id="D4" onclick="onClick('D4')">
+                        D4
+                    </td>
+                </tr>
+            </table>
+            <input id="dateinput" type="date" value="2021-10-29">
+            <select>
+                <option value="1">Suits</option>
+                <option value="2">어떻게 슈퍼히어로가 되었을까</option>
+                <option value="3">오징어게임</option>
+                <option value="4">베놈</option>
+            </select>
+            <button class="btn" id="btn" onclick="btnClick()">
+                좌석을 골라주세요
+            </button>
+        </div>
+    </body>
+</html>

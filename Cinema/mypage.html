@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cinema</title>
+        <style>
+            html,body {
+                margin:0;
+
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            /* header 부분 common css */
+            .headerContainer {
+                width:100%;
+                height:100px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: black;
+            }
+            /* 왼쪽 nav */
+            .headerLeft {
+                display:flex;
+                padding: 1rem;
+                margin-left: 1rem;
+            }
+            /* 공통 nav */
+            .nav {
+                color: #fff;
+                display: flex;
+                list-style: none;
+                margin: 0 0 0 -12px;
+            }
+            .nav-home {
+                color:#000;
+            }
+             /* 오른쪽 nav */
+            .headerRight {
+                display:flex;
+                padding: 1rem;
+                margin-right: 1rem;
+            }
+            .Link {
+                padding: 10px 12px;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+            }
+            /* 4개의 영화 보여줄 section */
+            .SectionContainer {
+                display: flex;
+ 
+            }
+            .column {
+                width: 50%;
+                padding-left:1rem;
+                padding-right:1rem;
+
+            }
+            .movieBox {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+                background: white;
+                border-radius: 4px;
+                box-shadow: rgba(0, 0, 0, 0.18) 0px 4px 16px 0px;
+                transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+                overflow: hidden;
+            }
+            .movieBox:hover {
+                transform: translateY(-8px);
+                box-shadow: rgba(0, 0, 0, 0.28) 0px 12px 20px 0px;
+        }
+            }
+            .titlebody{
+                display: block;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .title {
+                padding: 0.7rem;
+                font-size: 1.5rem;
+                color: #000;
+                margin: 0px 0px 0.25rem;
+                line-height: 1.5;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .body {
+                width: 100%;
+                height: 18rem;
+            }
+            .thumbnail_image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                max-width: 100%;
+                image-rendering: auto;
+            }
+            .sectionfooter {
+                padding: 1rem;
+                margin-top: 1rem;
+                border-top: 1px solid rgb(248, 249, 250);
+                display: flex;
+                font-size: 0.75rem;
+                line-height: 1.5;
+                justify-content: space-between;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .innerlist{
+                background-color:blue;
+                height:50px; 
+                display:flex; 
+                margin:1rem;
+                border-radius:1rem;
+                padding: 1rem;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+            }
+            .leftlist {
+                display:flex;
+                width: 80%;
+                justify-content: space-around;
+            }
+            .myp{
+                color:white;
+            }
+            .deletebtn {
+                width:3rem;
+                height:1rem;
+                border-radius: .2rem;
+                color:black;
+                background-color: red;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #mytext {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerContainer">
+                <div class="headerLeft">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-home">
+                                <a class="Link" href="./main.html">HOME</a>
+                            </li>
+                            <li class="nav-introduce">
+                                <a class="Link" href="./introduce.html">INTRODUCE</a>
+                            </li>
+                            <li class="nav-register">
+                                <a class="Link" href="./reservation.html">REGISTER</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="headerRight">
+                    <nav class="site-nav">
+                        <ul class="nav">
+                            <li class="nav-mypage">
+                                <a class="Link" href="./mypage.html">MYPAGE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <h2 id="mytext">마이페이지</h2>
+            클릭시 상세정보가 나타납니다
+        </div>
+        <script>
+            var p = document.getElementById("mytext")
+            var text = JSON.parse(localStorage.getItem("reservation"))
+            text.map(data=> {
+                console.log(data)
+                document.write(`
+                
+                <div class="innerlist" onclick="modals('${data.movie}','${data.seat}','${data.date}')">
+                    
+                    <div class="leftlist">
+                        <p class="myp">${data.movie}</p>
+                        <p class="myp">${data.seat}</p>
+                        <p class="myp">${data.date}</p>
+                    </div>
+                    <button class="deletebtn" onclick='adelete(${data.id})'>delete</button>
+                    
+                </div>
+                <p id="detailp"></p>
+                    
+                    `)
+            })
+            const adelete = (id)=> {
+                var templist =JSON.parse(localStorage.getItem("reservation"))
+                const filtered = templist.filter(data=> {
+                    return data.id !== id
+                })
+                console.log(filtered)
+                localStorage.setItem("reservation",JSON.stringify(filtered))
+                location.reload()
+            }
+            const modals = (movie,seat,date) => {
+                console.log(movie,seat,date)
+                document.getElementById("detailp").innerText = `${movie} 영화를 ${seat}좌석으로 ${date}로 18000원 예매하셨습니다`
+            }
+            
+        </script>
+    </body>
+
+</html>
